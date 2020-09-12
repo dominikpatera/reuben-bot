@@ -1,10 +1,8 @@
 import discord
 import os
 from discord.ext import commands
-import json
 
 client = commands.Bot(command_prefix='.')
-token = open("token.txt", "r").read()
 
 
 @client.command()
