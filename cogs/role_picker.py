@@ -23,7 +23,7 @@ class RolePicker(commands.Cog):
             "wow": 753941499401470044,  # wow
             "terraria": 754652470143090708,  # terraria
             "🧠": 754652574979850320,  # strategy
-            "🏉": 754652981747777596,  # sport
+            "🏀": 754652981747777596,  # sport
         }
 
         self.roles = {
@@ -40,7 +40,7 @@ class RolePicker(commands.Cog):
         member = payload.member
         channel_id = payload.channel_id
         emoji = payload.emoji
-
+        print(emoji.name)
         if channel_id == 753889477742690305:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
