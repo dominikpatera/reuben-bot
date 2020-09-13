@@ -130,7 +130,7 @@ class AdminCommands(commands.Cog):
         await ctx.channel.purge(limit=1)
         guild = member.guild
         await member.add_roles(role)
-        message = f'🥰 {member.mention} obdržel roli {role.mention}.'
+        message = f'🥰 Role {role.mention} was given to {member.mention}.'
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
 
@@ -140,7 +140,7 @@ class AdminCommands(commands.Cog):
         await ctx.channel.purge(limit=1)
         guild = member.guild
         await member.remove_roles(role)
-        message = f'😢 {member.mention} ztratil roli {role.mention}.'
+        message = f'😢 Role {role.mention} was removed from {member.mention}.'
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
 
