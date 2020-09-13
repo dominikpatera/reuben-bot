@@ -16,15 +16,15 @@ class AdminCommands(commands.Cog):
         rules = self.client.get_channel(753919822823292988)
 
         message = ''
-        private_message = f'⚠️ YOU WERE WARNED ⚠️\n\n{ctx.message.author.mention} warned you'
+        private_message = f'⚠️ **BYL SI VAROVÁN** ⚠️\n\n{ctx.message.author.mention} tě varoval'
         if reason == None:
-            message = f'⚠️ {ctx.message.author.mention} warned {member.mention}.'
+            message = f'⚠️ {ctx.message.author.mention} varoval {member.mention}.'
             private_message = private_message + '. 🚨'
         else:
-            message = f'⚠️ {ctx.message.author.mention} warned {member.mention} because of {reason}.'
-            private_message = private_message+f' because of {reason}. 🚨'
+            message = f'⚠️ {ctx.message.author.mention} varoval {member.mention} za {reason}.'
+            private_message = private_message+f' za {reason}. 🚨'
         private_message = private_message + \
-            f'\n\nYou should check the {rules.mention} and behave according to the them. 😊\n\nReuben\n*oink*'
+            f'\n\nMěl by sis znovu přečíst {rules.mention} a dodržovat je. 😊\n\nReuben\n*oink*'
 
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
@@ -51,15 +51,15 @@ class AdminCommands(commands.Cog):
         banappeals = self.client.get_channel(754104965949030504)
 
         message = ''
-        private_message = f'🛑 YOU WERE BANNED 🛑\n\n{ctx.message.author.mention} banned you'
+        private_message = f'🛑 **BYL SI ZABANOVÁN** 🛑\n\n{ctx.message.author.mention} tě zabanoval'
         if reason == None:
-            message = f'🛑 {ctx.message.author.mention} banned {member.mention}.'
+            message = f'🛑 {ctx.message.author.mention} zabanoval {member.mention}.'
             private_message = private_message + '. ❌'
         else:
-            message = f'🛑 {ctx.message.author.mention} banned {member.mention} for {reason}.'
-            private_message = private_message+f' for {reason}. ❌'
+            message = f'🛑 {ctx.message.author.mention} zabanoval {member.mention} za {reason}.'
+            private_message = private_message+f' za {reason}. ❌'
         private_message = private_message + \
-            f'\n\nYou should check the {info.mention} and write your appeal into {banappeals.mention}.\n\nReuben\n*oink*'
+            f'\n\nMěl by sis přečíst {info.mention} a napsat své odvolání do {banappeals.mention}.\n\nReuben\n*oink*'
 
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
@@ -80,16 +80,16 @@ class AdminCommands(commands.Cog):
         pickrole = self.client.get_channel(754090438314557573)
 
         message = ''
-        private_message = f'💚 YOU WERE UNBANNED 💚\n\n{ctx.message.author.mention} unbanned you'
+        private_message = f'💚 **BYL SI ODBANOVÁN** 💚\n\n{ctx.message.author.mention} tě odbanoval'
         if reason == None:
-            message = f'💚 {ctx.message.author.mention} unbanned {member.mention}.'
+            message = f'💚 {ctx.message.author.mention} odbanoval {member.mention}.'
             private_message = private_message + '. ✅'
         else:
-            message = f'💚 {ctx.message.author.mention} unbanned {member.mention} because of {reason}.'
-            private_message = private_message + f' because of {reason}. ✅'
+            message = f'💚 {ctx.message.author.mention} odbanoval {member.mention} za {reason}.'
+            private_message = private_message + f' za {reason}. ✅'
         private_message = private_message + \
-            f'\n\nDon\'t forget to check the {rules.mention},' + \
-            f' verify yourself ✅ in {welcome.mention} (if you were verified then you need to recheck the emoji ✅) and {pickrole.mention}s by your interests 👍!\n\nReuben\n*oink*'
+            f'\n\nNezapomeň si přečíst {rules.mention},' + \
+            f' ověřit se ✅ ve {welcome.mention} (pokud si již byl ověřen, tak musíš znovu zaškrtnout emoji ✅) a vybrat roli v {pickrole.mention} podle tvých zájmů 👍!\n\nReuben\n*oink*'
 
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
@@ -130,7 +130,7 @@ class AdminCommands(commands.Cog):
         await ctx.channel.purge(limit=1)
         guild = member.guild
         await member.add_roles(role)
-        message = f'🥰 Role {role.mention} was given to {member.mention}.'
+        message = f'🥰 {member.mention} obdržel roli {role.mention}.'
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
 
@@ -140,7 +140,7 @@ class AdminCommands(commands.Cog):
         await ctx.channel.purge(limit=1)
         guild = member.guild
         await member.remove_roles(role)
-        message = f'😢 Role {role.mention} was removed from {member.mention}.'
+        message = f'😢 {member.mention} ztratil roli {role.mention}.'
         channel = self.client.get_channel(753907336497725470)  # discord
         await channel.send(message)
 
