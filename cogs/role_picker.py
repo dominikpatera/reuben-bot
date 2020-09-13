@@ -40,7 +40,7 @@ class RolePicker(commands.Cog):
         member = payload.member
         channel_id = payload.channel_id
         emoji = payload.emoji
-        print(emoji.name)
+
         if channel_id == 753889477742690305:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
