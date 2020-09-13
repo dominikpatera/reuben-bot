@@ -23,7 +23,7 @@ class Status(commands.Cog):
         pickrole = self.client.get_channel(754090438314557573)
 
         await channel.send(f'👋 Ahoj {member.mention}, vítej ve chlívku!')
-        await member.send(f'🐷 VÍTEJ V PIGGSCORDU! 🐷\n\nJsem rád, že si se k nám přidal! ❤️\n\nNezapomeň si přečíst {rules.mention},' +
+        await member.send(f'🐷 VÍTEJ NA PIGGSCORDU! 🐷\n\nJsem rád, že si se k nám přidal! ❤️\n\nNezapomeň si přečíst {rules.mention},' +
                           f' ověřit se ✅ ve {welcome.mention} a vybrat roli v {pickrole.mention} dle tvých zájmů 👍!\n\nReuben\n*oink*')
 
     @commands.Cog.listener()
