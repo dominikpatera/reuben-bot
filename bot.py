@@ -8,7 +8,7 @@ mainRoles = Roles().getMainRoles()
 
 
 @client.command()
-@commands.has_role(754038174334058498)  # bot dev
+@commands.has_role(mainRoles['botDev']['id'])  # bot dev
 async def load(ctx, extension):
     await ctx.channel.purge(limit=1)
     client.load_extension(f'cogs.{extension}')
@@ -17,7 +17,7 @@ async def load(ctx, extension):
 
 
 @client.command()
-@commands.has_role(754038174334058498)  # bot dev
+@commands.has_role(mainRoles['botDev']['id'])  # bot dev
 async def unload(ctx, extension):
     await ctx.channel.purge(limit=1)
     client.unload_extension(f'cogs.{extension}')
@@ -26,7 +26,7 @@ async def unload(ctx, extension):
 
 
 @client.command()
-@commands.has_role(754038174334058498)  # bot dev
+@commands.has_role(mainRoles['botDev']['id'])  # bot dev
 async def reload(ctx, extension=None):
     await ctx.channel.purge(limit=1)
     channel = client.get_channel(753971727431762000)  # status
@@ -43,7 +43,7 @@ async def reload(ctx, extension=None):
 
 
 @client.command()
-@commands.has_role(754038174334058498)  # bot dev
+@commands.has_role(mainRoles['botDev']['id'])  # bot dev
 async def shutdown(ctx):
     await ctx.channel.purge(limit=1)
     channel = client.get_channel(753971727431762000)  # status
