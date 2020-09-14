@@ -1,7 +1,10 @@
 import os
 from discord.ext import commands
+from classes.roles import Roles
 
 client = commands.Bot(command_prefix='.')
+
+mainRoles = Roles().getMainRoles()
 
 
 @client.command()
