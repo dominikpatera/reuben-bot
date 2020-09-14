@@ -7,7 +7,7 @@ class Roles:
         self.mainR = []
         self.interests = []
         self.games = []
-        loadRoles()
+        self.loadRoles()
 
     def loadRoles(self):
         f = open(os.path.dirname(__file__) + '/../keys/roles.json', 'r')
