@@ -44,7 +44,7 @@ async def reload(ctx, extension=None):
 async def shutdown(ctx):
     await ctx.channel.purge(limit=1)
     channel = client.get_channel(753971727431762000)  # status
-    await channel.send(f'💤 I\'m going to sleep. Bye!')
+    await channel.send('💤 I\'m going to sleep. Bye!')
     await ctx.bot.logout()
 
 for filename in os.listdir('./cogs'):
