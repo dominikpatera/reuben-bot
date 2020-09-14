@@ -113,31 +113,31 @@ class AdminCommands(commands.Cog):
         await ctx.channel.purge(limit=amount+1)
 
     @commands.command(aliases=['bot_message', 'send'])
-    @commands.has_role(self.roles['main']['admin']['id'])  # admin
+    @commands.has_role(Roles.getMainRoles()['main']['admin']['id'])  # admin
     async def message_bot(self, ctx, channel: discord.TextChannel, *, text=None):
         await ctx.channel.purge(limit=1)
         await channel.send(f'{text}')
 
     @commands.command(aliases=['edit'])
-    @commands.has_role(self.roles['main']['admin']['id'])  # admin
+    @commands.has_role(Roles.getMainRoles()['main']['admin']['id'])  # admin
     async def edit_message(self, ctx, message: discord.Message, *, text=None):
         await ctx.channel.purge(limit=1)
         await message.edit(content=text)
 
     @commands.command(aliases=['react'])
-    @commands.has_role(self.roles['main']['admin']['id'])  # admin
+    @commands.has_role(Roles.getMainRoles()['main']['admin']['id'])  # admin
     async def react_to_message(self, ctx, message: discord.Message, *, reaction):
         await ctx.channel.purge(limit=1)
         await message.add_reaction(reaction)
 
     @commands.command(aliases=['unreact'])
-    @commands.has_role(self.roles['main']['admin']['id'])  # admin
+    @commands.has_role(Roles.getMainRoles()['main']['admin']['id'])  # admin
     async def unreact_to_message(self, ctx, message: discord.Message, *, reaction):
         await ctx.channel.purge(limit=1)
         await message.clear_reaction(reaction)
 
     @commands.command(aliases=['addrole'])
-    @commands.has_role(self.roles['main']['admin']['id'])  # admin
+    @commands.has_role(Roles.getMainRoles()['main']['admin']['id'])  # admin
     async def add_role(self, ctx, member: discord.Member, *, role: discord.Role):
         await ctx.channel.purge(limit=1)
         await member.add_roles(role)
@@ -147,7 +147,7 @@ class AdminCommands(commands.Cog):
         await channel.send(message)
 
     @commands.command(aliases=['removerole'])
-    @commands.has_role(self.roles['main']['admin']['id'])  # admin
+    @commands.has_role(Roles.getMainRoles()['main']['admin']['id'])  # admin
     async def remove_role(self, ctx, member: discord.Member, *, role: discord.Role):
         await ctx.channel.purge(limit=1)
         await member.remove_roles(role)
