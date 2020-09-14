@@ -17,7 +17,7 @@ class AdminCommands(commands.Cog):
 
         message = ''
         private_message = f'⚠️ **BYL SI VAROVÁN** ⚠️\n\n{ctx.message.author.mention} tě varoval'
-        if reason == None:
+        if reason is None:
             message = f'⚠️ {ctx.message.author.mention} varoval {member.mention}.'
             private_message = private_message + '. 🚨'
         else:
@@ -52,7 +52,7 @@ class AdminCommands(commands.Cog):
 
         message = ''
         private_message = f'🛑 **BYL SI ZABANOVÁN** 🛑\n\n{ctx.message.author.mention} tě zabanoval'
-        if reason == None:
+        if reason is None:
             message = f'🛑 {ctx.message.author.mention} zabanoval {member.mention}.'
             private_message = private_message + '. ❌'
         else:
@@ -81,7 +81,7 @@ class AdminCommands(commands.Cog):
 
         message = ''
         private_message = f'💚 **BYL SI ODBANOVÁN** 💚\n\n{ctx.message.author.mention} tě odbanoval'
-        if reason == None:
+        if reason is None:
             message = f'💚 {ctx.message.author.mention} odbanoval {member.mention}.'
             private_message = private_message + '. ✅'
         else:
@@ -128,7 +128,6 @@ class AdminCommands(commands.Cog):
     @commands.has_role(753889013257207839)  # admin
     async def add_role(self, ctx, member: discord.Member, *, role: discord.Role):
         await ctx.channel.purge(limit=1)
-        guild = member.guild
         await member.add_roles(role)
         message = f'🥰 Role {role.mention} was given to {member.mention}.'
         channel = self.client.get_channel(753907336497725470)  # discord
@@ -138,7 +137,6 @@ class AdminCommands(commands.Cog):
     @commands.has_role(753889013257207839)  # admin
     async def remove_role(self, ctx, member: discord.Member, *, role: discord.Role):
         await ctx.channel.purge(limit=1)
-        guild = member.guild
         await member.remove_roles(role)
         message = f'😢 Role {role.mention} was removed from {member.mention}.'
         channel = self.client.get_channel(753907336497725470)  # discord

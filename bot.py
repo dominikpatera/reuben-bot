@@ -1,4 +1,3 @@
-import discord
 import os
 from discord.ext import commands
 
@@ -28,7 +27,7 @@ async def unload(ctx, extension):
 async def reload(ctx, extension=None):
     await ctx.channel.purge(limit=1)
     channel = client.get_channel(753971727431762000)  # status
-    if extension != None:
+    if extension is not None:
         client.unload_extension(f'cogs.{extension}')
         client.load_extension(f'cogs.{extension}')
         await channel.send(f'🔁 Extension "{extension}" was reloaded.')

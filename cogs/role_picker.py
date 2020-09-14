@@ -1,5 +1,4 @@
 import discord
-import re
 from discord.ext import commands
 from discord.utils import get
 
@@ -45,7 +44,7 @@ class RolePicker(commands.Cog):
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
                 await member.add_roles(role)
-        elif channel_id == 753887103976472646 or channel_id == 754090438314557573:  # pick roles and welcome
+        elif channel_id in [753887103976472646, 754090438314557573]:  # pick roles and welcome
             if emoji.name in self.roles:
                 role = get(guild.roles, id=self.roles[emoji.name])
                 await member.add_roles(role)
@@ -59,11 +58,11 @@ class RolePicker(commands.Cog):
         channel_id = payload.channel_id
         emoji = payload.emoji
 
-        if channel_id == 753889477742690305: # pick games
+        if channel_id == 753889477742690305:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
                 await member.remove_roles(role)
-        elif channel_id == 754090438314557573: # pick roles
+        elif channel_id == 754090438314557573:  # pick roles
             if emoji.name in self.roles:
                 role = get(guild.roles, id=self.roles[emoji.name])
                 await member.remove_roles(role)
