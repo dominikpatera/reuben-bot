@@ -15,9 +15,6 @@ class Roles:
         self.mainR = data['main']
         self.interests = data['interests']
         self.games = data['games']
-        print(self.interests)
-        print(self.games)
-        print(self.mainR)
         f.close()
 
     def getMainRoles(self):
