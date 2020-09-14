@@ -1,0 +1,78 @@
+{
+	"interests": {
+		"user": {
+			"emoji": "✅",
+			"id": 753894111131467848
+		},
+		"gamer": {
+			"emoji": "🎮",
+			"id": 754082767301640342
+		},
+		"technology": {
+			"emoji": "🚀",
+			"id": 754082846104354906
+		},
+		"developerDesigner": {
+			"emoji": "🎨",
+			"id": 754088046328021003
+		},
+		"study": {
+			"emoji": "📖",
+			"id": 754101527672651835
+		}
+	},
+	"games": {
+		"csgo": {
+			"emoji": "csgo",
+			"id": 753895813926879312
+		},
+		"minecraft": {
+			"emoji": "minecraftAnimated",
+			"id": 753896417059143710
+		},
+		"fortnite": {
+			"emoji": "fortnite",
+			"id": 753938108311011451
+		},
+		"valorant": {
+			"emoji": "valorant",
+			"id": 753937040311189516
+		},
+		"lol": {
+			"emoji": "lol",
+			"id": 753939985849122847
+		},
+		"rocketLeague": {
+			"emoji": "rocketLeague",
+			"id": 754652090483212369
+		},
+		"amongUs": {
+			"emoji": "amongUs",
+			"id": 754045760588218560
+		},
+		"fallGuys": {
+			"emoji": "fallGuys",
+			"id": 753941469886283828
+		},
+		"tm": {
+			"emoji": "tm",
+			"id": 753941437111992441
+		},
+		"wow": {
+			"emoji": "wow",
+			"id": 753941499401470044
+		},
+		"terraria": {
+			"emoji": "terraria",
+			"id": 754652470143090708
+		},
+		"strategy": {
+			"emoji": "🧠",
+			"id": 754652574979850320
+		},
+		"sport": {
+			"emoji": "🏀",
+			"id": 754652981747777596
+		}
+	}
+}
