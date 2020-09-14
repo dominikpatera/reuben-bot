@@ -1,12 +1,19 @@
 import discord
 from discord.ext import commands
 from discord.utils import get
+from classes.channels import Channels
+from classes.roles import Roles
 
 
 class RolePicker(commands.Cog):
 
     def __init__(self, client):
         self.client = client
+        self.channels = Channels().getChannels()
+        self.roles = Roles()
+        self.main_roles = self.roles.getMainRoles()
+        self.games_roles = self.roles.getGamesRoles()
+        self.interests_roles = self.roles.getInterestsRoles()
         self.games = {
             # main games
             "csgo": 753895813926879312,  # csgo
@@ -40,11 +47,12 @@ class RolePicker(commands.Cog):
         channel_id = payload.channel_id
         emoji = payload.emoji
 
-        if channel_id == 753889477742690305:  # pick games
+        if channel_id == self.channels['games']['pick-games']:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
                 await member.add_roles(role)
-        elif channel_id in [753887103976472646, 754090438314557573]:  # pick roles and welcome
+        # pick roles and welcome
+        elif channel_id in [self.channels['firstSteps']['pick-role'], self.channels['firstSteps']['welcome']]:
             if emoji.name in self.roles:
                 role = get(guild.roles, id=self.roles[emoji.name])
                 await member.add_roles(role)
@@ -58,11 +66,11 @@ class RolePicker(commands.Cog):
         channel_id = payload.channel_id
         emoji = payload.emoji
 
-        if channel_id == 753889477742690305:  # pick games
+        if channel_id == self.channels['games']['pick-games']:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
                 await member.remove_roles(role)
-        elif channel_id == 754090438314557573:  # pick roles
+        elif channel_id == self.channels['firstSteps']['pick-role']:  # pick roles
             if emoji.name in self.roles:
                 role = get(guild.roles, id=self.roles[emoji.name])
                 await member.remove_roles(role)
