@@ -18,32 +18,6 @@ class RolePicker(commands.Cog):
         self.games_keys = self.games_roles.keys()
         self.interests_keys = self.interests_roles.keys()
 
-        self.games = {
-            # main games
-            "csgo": 753895813926879312,  # csgo
-            "minecraftAnimated": 753896417059143710,  # minecraft
-            "fortnite": 753938108311011451,  # fortnite
-            "valorant": 753937040311189516,  # valorant
-            "lol": 753939985849122847,  # league of legends
-            "rocketLeague": 754652090483212369,  # rocket league
-            # other games
-            "amongUs": 754045760588218560,  # among us
-            "fallGuys": 753941469886283828,  # fall guys
-            "tm": 753941437111992441,  # trackmania
-            "wow": 753941499401470044,  # wow
-            "terraria": 754652470143090708,  # terraria
-            "🧠": 754652574979850320,  # strategy
-            "🏀": 754652981747777596,  # sport
-        }
-
-        self.roles = {
-            "✅": 753894111131467848,  # user
-            "🎮": 754082767301640342,  # gamer
-            "🚀": 754082846104354906,  # tech
-            "🎨": 754088046328021003,  # developer/designer
-            "📖": 754101527672651835,  # study
-        }
-
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         guild = payload.member.guild
