@@ -63,17 +63,7 @@ class RolePicker(commands.Cog):
                     role = get(
                         guild.roles, id=self.interests_roles[interest]['id'])
                     await member.add_roles(role)
-        """
-        if channel_id == self.channels['games']['pick-games']:  # pick games
-            if emoji.name in self.games:
-                role = get(guild.roles, id=self.games[emoji.name])
-                await member.add_roles(role)
-        # pick roles and welcome
-        elif channel_id in [self.channels['firstSteps']['pick-role'], self.channels['firstSteps']['welcome']]:
-            if emoji.name in self.roles:
-                role = get(guild.roles, id=self.roles[emoji.name])
-                await member.add_roles(role)
-        """
+
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
         guild = discord.utils.find(
@@ -95,17 +85,6 @@ class RolePicker(commands.Cog):
                     role = get(
                         guild.roles, id=self.interests_roles[interest]['id'])
                     await member.remove_roles(role)
-
-        """
-        if channel_id == self.channels['games']['pick-games']:  # pick games
-            if emoji.name in self.games:
-                role = get(guild.roles, id=self.games[emoji.name])
-                await member.remove_roles(role)
-        elif channel_id == self.channels['firstSteps']['pick-role']:  # pick roles
-            if emoji.name in self.roles:
-                role = get(guild.roles, id=self.roles[emoji.name])
-                await member.remove_roles(role)
-        """
 
 
 def setup(client):
