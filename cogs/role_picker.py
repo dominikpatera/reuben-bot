@@ -14,6 +14,10 @@ class RolePicker(commands.Cog):
         self.main_roles = self.roles.getMainRoles()
         self.games_roles = self.roles.getGamesRoles()
         self.interests_roles = self.roles.getInterestsRoles()
+
+        self.games_keys = self.games_roles.keys()
+        self.interests_keys = self.interests_roles.keys()
+
         self.games = {
             # main games
             "csgo": 753895813926879312,  # csgo
@@ -48,6 +52,19 @@ class RolePicker(commands.Cog):
         emoji = payload.emoji
 
         if channel_id == self.channels['games']['pick-games']:  # pick games
+            for game in self.games_keys:
+                if emoji.name in self.games_roles[game]['emoji']:
+                    role = get(guild.roles, id=self.games_roles[game]['id'])
+                    await member.add_roles(role)
+            # pick roles and welcome
+        elif channel_id in [self.channels['firstSteps']['pick-role'], self.channels['firstSteps']['welcome']]:
+            for interest in self.interests_keys:
+                if emoji.name in self.interests_roles[interest]['emoji']:
+                    role = get(
+                        guild.roles, id=self.interests_roles[interest]['id'])
+                    await member.add_roles(role)
+        """
+        if channel_id == self.channels['games']['pick-games']:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
                 await member.add_roles(role)
@@ -56,7 +73,7 @@ class RolePicker(commands.Cog):
             if emoji.name in self.roles:
                 role = get(guild.roles, id=self.roles[emoji.name])
                 await member.add_roles(role)
-
+        """
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
         guild = discord.utils.find(
@@ -67,6 +84,20 @@ class RolePicker(commands.Cog):
         emoji = payload.emoji
 
         if channel_id == self.channels['games']['pick-games']:  # pick games
+            for game in self.games_keys:
+                if emoji.name in self.games_roles[game]['emoji']:
+                    role = get(guild.roles, id=self.games_roles[game]['id'])
+                    await member.remove_roles(role)
+            # pick roles and welcome
+        elif channel_id == self.channels['firstSteps']['pick-role']:  # pick roles
+            for interest in self.interests_keys:
+                if emoji.name in self.interests_roles[interest]['emoji']:
+                    role = get(
+                        guild.roles, id=self.interests_roles[interest]['id'])
+                    await member.remove_roles(role)
+
+        """
+        if channel_id == self.channels['games']['pick-games']:  # pick games
             if emoji.name in self.games:
                 role = get(guild.roles, id=self.games[emoji.name])
                 await member.remove_roles(role)
@@ -74,6 +105,7 @@ class RolePicker(commands.Cog):
             if emoji.name in self.roles:
                 role = get(guild.roles, id=self.roles[emoji.name])
                 await member.remove_roles(role)
+        """
 
 
 def setup(client):
