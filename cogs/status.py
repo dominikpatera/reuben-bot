@@ -25,11 +25,11 @@ class Status(commands.Cog):
         welcome = self.client.get_channel(
             self.channels['firstSteps']['welcome'])
         pickrole = self.client.get_channel(
-            self.channels['firstSteps']['pick-role'])
+            self.channels['games']['pick-games'])
 
         await channel.send(f'👋 Ahoj {member.mention}, vítej ve chlívku!')
-        await member.send(f'🐷 VÍTEJ NA PIGGSCORDU! 🐷\n\nJsem rád, že si se k nám přidal! ❤️\n\nNezapomeň si přečíst {rules.mention},' +
-                          f' ověřit se ✅ ve {welcome.mention} a vybrat roli v {pickrole.mention} dle tvých zájmů 👍!\n\nReuben\n*oink*')
+        await member.send(f'🐷 VÍTEJ NA PIGGSCORDU! 🐷\n\nJsem rád, že si se k nám přidal/a! ❤️\n\nNezapomeň si přečíst {rules.mention},' +
+                          f' ověřit se ✅ ve {welcome.mention} a vybrat hry v {pickrole.mention} dle tvých zájmů 👍!')
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):

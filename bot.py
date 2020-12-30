@@ -1,9 +1,12 @@
 import os
+import discord
 from discord.ext import commands
 from classes.roles import Roles
 from classes.channels import Channels
 
-client = commands.Bot(command_prefix='.')
+#client = commands.Bot(command_prefix='.')
+intents = discord.Intents.all()
+client = commands.Bot(command_prefix='.', intents=intents)
 
 roles_main = Roles().getMainRoles()
 channel_status = Channels().getChannels()['bot']['status']
@@ -57,4 +60,5 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
 
 
-client.run(os.environ["DISCORD_TOKEN"])
+#client.run(os.environ["DISCORD_TOKEN"])
+client.run('NzUzOTYxMjk5MjMwMDY0NzMw.X1tzLQ.SnKCscGnTzwjrtmzPLsVRbvzWbM')
